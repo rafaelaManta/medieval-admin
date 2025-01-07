@@ -1,24 +1,8 @@
-import { Table, Template } from "@/components";
-import { literals } from "@/lib/literals";
-import { getWaiters } from "./actions";
-import { waitersColumns } from "./config";
+import { getWaiters } from "./lib/actions";
+import PageScreenContent from "./PageScreenContent";
 
 export default async function Waiters() {
-  const waiters = await getWaiters();
+  const { waiters, error } = await getWaiters();
 
-  return (
-    <Template
-      createButtonProps={{
-        path: "/waiters/create",
-        text: literals.createWaiterButtonText,
-      }}
-    >
-      <Table
-        tableData={{ columns: waitersColumns, data: waiters }}
-        deleteButtonPressAction={async () => {
-          "use server";
-        }}
-      />
-    </Template>
-  );
+  return <PageScreenContent data={waiters} error={error} />;
 }

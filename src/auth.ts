@@ -16,7 +16,7 @@ declare module "next-auth" {
   }
 }
 
-export const { handlers, signIn, signOut, auth } = NextAuth({
+export const { handlers, signIn, auth } = NextAuth({
   debug: !!process.env.AUTH_DEBUG,
   providers: [
     Credentials({
@@ -38,7 +38,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return user ?? null;
         } catch (e) {
           console.error("authorizeError", e);
-          // throw e;
           return null;
         }
       },

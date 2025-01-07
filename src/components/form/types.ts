@@ -1,5 +1,3 @@
-import { ZodType } from "zod";
-
 export interface InputProps {
   value: string;
   onChange: (value: string) => void;
@@ -7,18 +5,16 @@ export interface InputProps {
 }
 
 export interface FormUIProps {
-  form: {
-    schema: ZodType;
-    formFields: [
-      {
-        name?: string;
-        label?: string;
-        type?: string;
-        value?: unknown;
-      },
-    ];
-    onSubmit: () => void;
-  };
+  schema: unknown;
+  formFields: {
+    name?: string;
+    label?: string;
+    type?: string;
+    value?: unknown;
+  }[];
+
+  onSubmitAction: (data?: unknown) => void;
+
   buttonProps: {
     text: string;
     isLoading?: boolean;

@@ -1,5 +1,3 @@
-"use client";
-import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
@@ -7,42 +5,30 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarHeader,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   useSidebar,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
 } from "@/components/ui/sidebar";
 import { Burger, Logo } from "@/components";
-import { menuItems } from "./menuItems";
+import { SidebarMenuUI } from "./SidebarMenu";
 
 export function SidebarUI() {
   const { open } = useSidebar();
-  console.log(open);
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className={"items-start"}>
-        <Burger variant={"ghost"} />
+      <SidebarHeader className={"items-start mb-2"}>
+        <Burger />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
-            <SidebarMenu>
-              {menuItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild>
-                    <Link href={item.url} scroll={false}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
+            <SidebarMenuUI />
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <Logo />
+        <div>{open ? <Logo /> : <Logo logoType={"secondary"} />}</div>
       </SidebarFooter>
     </Sidebar>
   );

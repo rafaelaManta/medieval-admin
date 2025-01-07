@@ -13,7 +13,7 @@ export const TableHeaderUI = ({ headerGroups }: TableHeaderProps) => {
             <TableHead
               key={header.id}
               // @ts-ignore
-              className={header.column.columnDef?.meta?.headerClassName}
+              className={`text-base ${header.column.columnDef?.meta?.headerClassName}`}
             >
               {header.isPlaceholder
                 ? null

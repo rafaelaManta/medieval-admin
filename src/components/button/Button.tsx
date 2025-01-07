@@ -5,7 +5,7 @@ import type { ButtonProps } from "./types";
 export const ButtonUI = ({ children, isLoading, ...props }: ButtonProps) => {
   return (
     <Button {...props}>
-      {isLoading && <LoaderCircle />}
+      {isLoading && <LoaderCircle className={"animate-spin"} />}
       {children}
     </Button>
   );

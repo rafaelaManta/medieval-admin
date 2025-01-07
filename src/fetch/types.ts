@@ -7,12 +7,3 @@ export interface RequestOptions {
   revalidate?: number;
   shouldAddToken?: boolean;
 }
-
-export interface FetchOptions<TBody> extends RequestOptions {
-  body?: TBody;
-}
-
-export interface ApiError {
-  status?: number;
-  message?: string;
-}

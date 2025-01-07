@@ -49,7 +49,7 @@ export default function LoginForm() {
   return (
     <Form {...form}>
       {error && (
-        <div className={"text-center text-destructive mt-5"}>
+        <div className={"text-center text-destructive mt-5 text-base"}>
           <p>{error}</p>
         </div>
       )}
@@ -60,7 +60,7 @@ export default function LoginForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className={"text-base"}>Email</FormLabel>
                 <FormControl>
                   <Input {...field} />
                 </FormControl>
@@ -85,7 +85,7 @@ export default function LoginForm() {
           />
         </div>
         <div className={"flex justify-end mt-5"}>
-          <Button type="submit" isLoading={isPending}>
+          <Button type="submit" isLoading={isPending} className={"text-base"}>
             {"Σύνδεση"}
           </Button>
         </div>

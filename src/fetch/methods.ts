@@ -1,22 +1,22 @@
 import { auth } from "@/auth";
 import { literals } from "@/lib/literals";
 import { extractErrorToSting } from "@/lib/formatters";
-import type { FetchOptions, HTTPMethod, RequestOptions } from "@/fetch/types";
+import type { HTTPMethod, RequestOptions } from "@/fetch/types";
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 async function fetchClient<
   TResponse,
-  TBody extends Record<string, unknown> = Record<string, unknown>,
+  TBody extends Record<string, unknown> | undefined = undefined,
 >(
   endpoint: string,
   method: HTTPMethod,
-  options: FetchOptions<TBody> = {
+  body?: TBody,
+  options: RequestOptions = {
     shouldAddToken: true,
   },
 ) {
-  const { body, shouldAddToken } = options;
-
+  const { shouldAddToken } = options;
   const requestHeaders: HeadersInit = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
@@ -30,9 +30,9 @@ async function fetchClient<
     if (!token) {
       throw new Error(literals.genericError);
     }
+
     requestHeaders.Authorization = `Bearer ${token}`;
   }
-
   const config: RequestInit = {
     method,
     headers: requestHeaders,
@@ -55,7 +55,10 @@ async function fetchClient<
     }
 
     if (response.status === 204) {
-      return null as TResponse;
+      return Promise.reject({
+        status: response.status,
+        message: literals.notFoundText,
+      });
     }
 
     return await response.json();
@@ -69,7 +72,7 @@ export async function get<TResponse>(
   endpoint: string,
   options?: RequestOptions,
 ): Promise<TResponse> {
-  return fetchClient<TResponse>(endpoint, "GET", options);
+  return fetchClient<TResponse>(endpoint, "GET", undefined, options);
 }
 
 export async function post<TResponse, TBody extends Record<string, unknown>>(
@@ -77,7 +80,7 @@ export async function post<TResponse, TBody extends Record<string, unknown>>(
   body: TBody,
   options?: RequestOptions,
 ): Promise<TResponse> {
-  return fetchClient<TResponse, TBody>(endpoint, "POST", { ...options, body });
+  return fetchClient<TResponse, TBody>(endpoint, "POST", { ...body }, options);
 }
 
 export async function put<TResponse, TBody extends Record<string, unknown>>(
@@ -85,14 +88,14 @@ export async function put<TResponse, TBody extends Record<string, unknown>>(
   body: TBody,
   options?: RequestOptions,
 ): Promise<TResponse> {
-  return fetchClient<TResponse, TBody>(endpoint, "PUT", { ...options, body });
+  return fetchClient<TResponse, TBody>(endpoint, "PUT", body, options);
 }
 
 export async function del<TResponse>(
   endpoint: string,
   options?: RequestOptions,
 ): Promise<TResponse> {
-  return fetchClient<TResponse>(endpoint, "DELETE", options);
+  return fetchClient<TResponse>(endpoint, "DELETE", undefined, options);
 }
 
 // interface Product {

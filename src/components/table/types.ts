@@ -1,11 +1,9 @@
 import { HeaderGroup, RowData } from "@tanstack/table-core";
 
 export interface TableUIProps {
-  tableData: {
-    data: unknown;
-    columns: { accessorKey: string; header: string }[];
-  };
-  path?: string;
+  data: unknown;
+  columns: { accessorKey: string; header: string }[];
+  editLink?: string;
   deleteButtonPressAction: (id: number) => void;
 }
 

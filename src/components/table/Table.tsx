@@ -12,11 +12,11 @@ import { TableActions } from "./TableActions";
 import type { TableUIProps } from "./types";
 
 export const TableUI = ({
-  tableData,
-  path,
+  data,
+  editLink,
+  columns,
   deleteButtonPressAction,
 }: TableUIProps) => {
-  const { data, columns } = tableData;
   const extendedColumns = useMemo(() => {
     return [
       ...columns,
@@ -26,7 +26,7 @@ export const TableUI = ({
         cell: (item: { row: { original: { id: number } } }) => {
           return (
             <TableActions
-              path={path}
+              path={editLink}
               row={item.row.original}
               handleDelete={deleteButtonPressAction}
             />
@@ -49,7 +49,7 @@ export const TableUI = ({
         <Table>
           <TableHeader headerGroups={table.getHeaderGroups()} />
           <TableBody>
-            {table.getRowModel().rows.map((row) => (
+            {table?.getRowModel()?.rows?.map((row) => (
               <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
