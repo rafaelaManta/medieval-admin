@@ -1,8 +1,9 @@
-import { OrderProduct } from "@/app/_lib/types";
-import { bgClass, STATUSES } from "@/app/_lib/utils";
-import { ButtonIcon } from "@/components";
+import { Button } from "@/components";
 import { ConciergeBell, HandCoins } from "lucide-react";
 import { OrderComments } from "@/components/orderProducts/OrderComments";
+import { OrderProduct } from "@/app/(admin)/(home)/lib/types";
+import { STATUSES } from "@/app/(admin)/(home)/lib/utils";
+import { bgClass } from "@/components/orderProducts/utils";
 
 export const OrderCards = ({
   orderProducts,
@@ -41,23 +42,23 @@ export const OrderCards = ({
         )}
         {orderProduct.status === STATUSES.toBeMade && (
           <div className={"justify-end"}>
-            <ButtonIcon
-              variant={"default"}
+            <Button
+              size="icon"
               className={`opacity-100 ${bgClass[orderProduct.status]}`}
             >
               <ConciergeBell />
-            </ButtonIcon>
+            </Button>
           </div>
         )}
         {orderProduct.status === STATUSES.toBePaid && (
           <div className={" justify-end"}>
-            <ButtonIcon
-              variant={"default"}
+            <Button
+              size={"icon"}
               className={`opacity-100 ${bgClass[orderProduct.status]}`}
               onClick={() => onClickOrderProduct(orderProduct)}
             >
               <HandCoins />
-            </ButtonIcon>
+            </Button>
           </div>
         )}
       </div>

@@ -1,11 +1,4 @@
-import {
-  HandPlatter,
-  Home,
-  LogOut,
-  Martini,
-  User,
-  Warehouse,
-} from "lucide-react";
+import { HandPlatter, Home, LogOut, Martini, Table, User } from "lucide-react";
 
 export const menuItems = [
   {
@@ -31,7 +24,7 @@ export const menuItems = [
   {
     title: "Τραπέζια",
     url: "/tables",
-    icon: () => <Warehouse />,
+    icon: () => <Table />,
   },
 
   {

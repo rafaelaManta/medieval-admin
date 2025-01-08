@@ -3,7 +3,7 @@ import logo from "#/public/logo.png";
 import potionLogo from "#/public/potionLogo.png";
 
 export const Logo = ({
-  className = "flex justify-center",
+  className = "flex justify-start p-2",
   width = 200,
   height = 158,
   logoType = "primary",

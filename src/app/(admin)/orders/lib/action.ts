@@ -7,8 +7,10 @@ import { matchApiDataWithFields } from "@/lib/formatters";
 export async function getOrders() {
   try {
     const orders = await get("/orders");
+    console.log(orders);
     return { orders, error: undefined, isSuccess: true };
   } catch (error) {
+    console.log("getOrders", error);
     return { orders: null, error, isSuccess: false };
   }
 }

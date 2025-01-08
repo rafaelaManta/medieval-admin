@@ -7,5 +7,17 @@ import { FormUI as Form } from "@/components/form/Form";
 import { TableUI as Table } from "@/components/table/Table";
 import { Toast } from "@/components/toast/Toast";
 import { Error } from "@/components/error/Error";
+import { OrderProducts } from "@/components/orderProducts/OrderProducts";
 
-export { Button, Logo, Sidebar, Header, Burger, Form, Table, Toast, Error };
+export {
+  Button,
+  Logo,
+  Sidebar,
+  Header,
+  Burger,
+  Form,
+  Table,
+  Toast,
+  Error,
+  OrderProducts,
+};

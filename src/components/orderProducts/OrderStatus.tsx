@@ -1,4 +1,4 @@
-import { bgClass, LITERALS } from "@/app/_lib/utils";
+import { bgClass, LITERALS } from "@/components/orderProducts/utils";
 
 export const OrderStatus = ({ status }: { status: string }) => (
   <div className={`p-2 rounded text-center shadow ${bgClass[status]} mb-4`}>

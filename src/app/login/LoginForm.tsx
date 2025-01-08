@@ -27,7 +27,6 @@ export default function LoginForm() {
       email: "",
       password: "",
     },
-    mode: "onChange",
   });
 
   async function onSubmit(values: LoginType) {

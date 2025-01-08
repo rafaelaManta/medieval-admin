@@ -5,6 +5,7 @@ export interface TemplateProps {
   createButtonProps?: object;
   error?: ApiError | undefined;
   isSuccess?: boolean;
+  className?: string;
 }
 
 export type toastType = "error" | "success" | "info" | undefined;

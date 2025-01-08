@@ -1,3 +1,5 @@
+import { STATUSES } from "@/app/(admin)/(home)/lib/utils";
+
 export const literals = {
   genericError: "Κάτι πήγε στραβά! Δοκιμάστε ξανά!",
   invalidCredentials:
@@ -9,4 +11,8 @@ export const literals = {
   updateText: "Ενημέρωση",
   notFoundText: "Δεν βρέθηκαν εγγραφές!",
   successText: "Η διαδικασία ολοκληρώθηκε με επιτυχία!",
+  userText: "Γειά σου %!",
+  toBeMadeText: "Πρως υλοποίση",
+  toBePaidText: "Πρως πληρωμή",
+  paidText: "Πληρωμένη",
 };
