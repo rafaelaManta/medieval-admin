@@ -17,7 +17,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Medieval Coctales</title>
       </head>
-      <body className={"bg-neutral-50 text-sm text-black antialiased"}>
+      <body className={"bg-neutral-50 text-base text-black antialiased"}>
         {children}
       </body>
     </html>

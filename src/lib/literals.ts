@@ -15,4 +15,10 @@ export const literals = {
   toBeMadeText: "Πρως υλοποίση",
   toBePaidText: "Πρως πληρωμή",
   paidText: "Πληρωμένη",
+  tableText: "Τραπέζι",
+  details: "Λεπτομέρειες",
+  waitressText: "Σερβιτόρος",
+  codeText: "Κωδικός",
+  completedText: "Ολοκληρωμένη",
+  costText: "Κόστος",
 };

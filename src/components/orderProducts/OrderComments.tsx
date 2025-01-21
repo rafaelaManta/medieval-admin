@@ -5,6 +5,6 @@ export const OrderComments = ({ product }: { product: OrderProduct }) => {
     return null;
   }
   return (
-    <p>{`Σχόλια: ${product.comments ?? ""} ${product.order.comments ?? ""}`}</p>
+    <p>{`Σχόλια: ${product.comments ?? ""} ${product.order?.comments ?? ""}`}</p>
   );
 };

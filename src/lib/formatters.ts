@@ -4,7 +4,7 @@ export const extractErrorToSting = (errorMessages = {}) => {
 
 export const matchApiDataWithFields = (
   formFields: object[],
-  currentField: object[],
+  currentField: object,
 ) => {
   return formFields?.map((field) => {
     return {

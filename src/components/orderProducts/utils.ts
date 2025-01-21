@@ -8,7 +8,7 @@ export const LITERALS = {
 };
 
 export const bgClass = {
-  [STATUSES.toBeMade]: "bg-orange-400",
-  [STATUSES.toBePaid]: "bg-purple-400",
-  [STATUSES.paid]: "bg-green-400",
+  [STATUSES.toBeMade]: "bg-orange-500",
+  [STATUSES.toBePaid]: "bg-purple-600",
+  [STATUSES.paid]: "bg-green-600",
 };

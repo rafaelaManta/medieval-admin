@@ -11,14 +11,16 @@ export async function postLogin(credentials: LoginType) {
   return signIn("credentials", {
     email,
     password,
-    redirectTo: DEFAULT_LOGIN_REDIRECT,
+    redirect: false,
   }).catch((error) => {
     console.log("loginAction", error);
     if (error instanceof AuthError) {
-      const { type } = error;
+      const { type, cause } = error;
       switch (type) {
         case "CredentialsSignin":
           throw literals.invalidCredentials;
+        case "CallbackRouteError":
+          throw cause?.err?.toString();
         default:
           throw literals.genericError;
       }

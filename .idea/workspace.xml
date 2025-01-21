@@ -5,28 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="16a61327-1d23-4b71-80dc-22f41bf76199" name="Changes" comment="UI fixes">
-      <change afterPath="$PROJECT_DIR$/src/app/(admin)/(home)/lib/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/orderProducts/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/useCurrentUser.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/(admin)/orders/order/[id]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/accordion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(admin)/(home)/lib/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/(home)/lib/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(admin)/(home)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/(home)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/orders/PageScreenContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/orders/PageScreenContent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(admin)/orders/lib/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/orders/lib/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/orders/lib/data.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(admin)/tables/lib/shema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(admin)/tables/lib/shema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logo/Logo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logo/Logo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/notFound/NotFound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/notFound/NotFound.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/Form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/Form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/form/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/form/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/orderProducts/OrderCards.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderProducts/OrderCards.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/orderProducts/OrderComments.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderProducts/OrderComments.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/orderProducts/OrderProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderProducts/OrderProducts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/orderProducts/OrderStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderProducts/OrderStatus.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sidebar/menuItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sidebar/menuItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/orderProducts/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/orderProducts/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/Table.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/Table.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/TableActions.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/TableActions.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/table/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/table/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/formatters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/formatters.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/literals.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/literals.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/MainTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/MainTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +41,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -115,7 +120,9 @@
       <workItem from="1736036192360" duration="380000" />
       <workItem from="1736073582701" duration="29739000" />
       <workItem from="1736181591012" duration="20392000" />
-      <workItem from="1736262139503" duration="21964000" />
+      <workItem from="1736262139503" duration="22020000" />
+      <workItem from="1736350155533" duration="12817000" />
+      <workItem from="1737456233314" duration="8203000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -133,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736285795820</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="UI fixes">
+      <option name="closed" value="true" />
+      <created>1736295474279</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1736295474279</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +189,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/table/Table.tsx</url>
-          <line>48</line>
+          <line>50</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

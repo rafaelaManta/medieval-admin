@@ -16,10 +16,12 @@ import { Button } from "@/components";
 import { postLogin } from "@/app/login/actions";
 import { loginSchema } from "@/app/login/schema";
 import type { LoginType } from "@/app/login/types";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
+  const router = useRouter();
 
   const form = useForm<LoginType>({
     resolver: zodResolver(loginSchema),
@@ -38,6 +40,7 @@ export default function LoginForm() {
           email: values.email,
           password: values.password,
         });
+        router.push("/");
       } catch (error) {
         // @ts-ignore
         setError(error?.message);

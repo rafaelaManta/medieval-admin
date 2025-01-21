@@ -4,7 +4,8 @@ export interface TableUIProps {
   data: unknown;
   columns: { accessorKey: string; header: string }[];
   editLink?: string;
-  deleteButtonPressAction: (id: number) => void;
+  displayLink?: string;
+  deleteButtonPressAction?: (id: number) => void;
 }
 
 export interface TableHeaderProps {

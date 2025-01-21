@@ -6,7 +6,7 @@ import { OrderProducts } from "@/components";
 
 export default async function Home() {
   const session = await auth();
-  console.log(session);
+  console.log("dssd", session);
   const { todayOrders: toBeMadeOrders, error: toBeMadeOrdersError } =
     await getTodayOrdersByStatus(STATUSES.toBeMade);
 

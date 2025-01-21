@@ -15,6 +15,7 @@ export const TableUI = ({
   data,
   editLink,
   columns,
+  displayLink,
   deleteButtonPressAction,
 }: TableUIProps) => {
   const extendedColumns = useMemo(() => {
@@ -26,15 +27,16 @@ export const TableUI = ({
         cell: (item: { row: { original: { id: number } } }) => {
           return (
             <TableActions
-              path={editLink}
+              editLink={editLink}
               row={item.row.original}
               handleDelete={deleteButtonPressAction}
+              displayLink={displayLink}
             />
           );
         },
       },
     ];
-  }, [columns]);
+  }, [columns, editLink, displayLink, deleteButtonPressAction]);
 
   const table = useReactTable({
     // @ts-ignore
@@ -47,7 +49,7 @@ export const TableUI = ({
     <Card className={"pt-6 lg:w-2/3"}>
       <CardContent>
         <Table>
-          <TableHeader headerGroups={table.getHeaderGroups()} />
+          <TableHeader headerGroups={table?.getHeaderGroups()} />
           <TableBody>
             {table?.getRowModel()?.rows?.map((row) => (
               <TableRow key={row.id}>

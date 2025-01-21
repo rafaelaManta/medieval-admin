@@ -13,8 +13,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components";
 import type { FormUIProps } from "@/components/form/types";
-import { FieldUI } from "@/components/form/Fields";
-import { ZodType } from "zod";
+import type { ZodType } from "zod";
 
 export const FormUI = ({
   formFields,
@@ -71,11 +70,13 @@ export const FormUI = ({
                 />
               </div>
             ))}
-            <div className={"flex justify-end mt-5"}>
-              <Button type="submit" className={"text-base"} {...buttonProps}>
-                {buttonProps.text}
-              </Button>
-            </div>
+            {buttonProps && (
+              <div className={"flex justify-end mt-5"}>
+                <Button type="submit" className={"text-base"} {...buttonProps}>
+                  {buttonProps.text}
+                </Button>
+              </div>
+            )}
           </form>
         </Form>
       </CardContent>
