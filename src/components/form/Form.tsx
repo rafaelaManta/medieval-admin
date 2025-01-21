@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components";
+import { FieldUI } from "@/components/form/Fields";
 import type { FormUIProps } from "@/components/form/types";
 import type { ZodType } from "zod";
 
@@ -25,7 +26,6 @@ export const FormUI = ({
     () =>
       formFields?.reduce((acc, field) => {
         if (field.name === "in_stock") {
-          console.log(field.value);
           // @ts-ignore
           acc[field.name] = !!field?.value;
         } else if (field.name === "tags") {
@@ -60,7 +60,6 @@ export const FormUI = ({
                       <FormItem>
                         <FormLabel className={"text-base"}>{label}</FormLabel>
                         <FormControl>
-                          {/* @ts-expect-error */}
                           <FieldUI field={field} type={type} />
                         </FormControl>
                         <FormMessage />

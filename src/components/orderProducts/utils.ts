@@ -1,5 +1,5 @@
 import { literals } from "@/lib/literals";
-import { STATUSES } from "@/app/(admin)/(home)/lib/utils";
+import { STATUSES } from "@/app/(admin)/(home)/lib/model";
 
 export const LITERALS = {
   [STATUSES.toBeMade]: literals.toBeMadeText,

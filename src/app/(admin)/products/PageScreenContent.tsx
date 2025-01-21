@@ -22,7 +22,7 @@ export default function PageScreenContent({
       error={error || deleteError}
       createButtonProps={{
         path: "/products/create",
-        text: literals.createTableButtonText,
+        text: literals.createProductsButtonText,
       }}
       isSuccess={deleteSuccess}
     >

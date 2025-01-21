@@ -2,7 +2,7 @@ import React from "react";
 import { FileQuestion } from "lucide-react";
 import { literals } from "@/lib/literals";
 
-export const NotFound = ({ className = "" }: { className: string }) => {
+export const NotFound = ({ className = "" }: { className?: string }) => {
   return (
     <div
       className={`w-full py-16 flex flex-col items-center justify-center bg-gray-50 rounded-lg ${className}`}

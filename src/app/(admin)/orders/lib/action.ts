@@ -1,25 +1,26 @@
 "use server";
-import { get } from "@/fetch/methods";
+import { get, put } from "@/fetch/methods";
+import type { IOrder, OrdersType } from "@/app/(admin)/orders/lib/types";
 
 export async function getOrders() {
   try {
-    const orders = await get("/orders");
-    return { orders, error: undefined, isSuccess: true };
+    const orders: OrdersType = await get("/orders");
+    return { orders, isSuccess: true };
   } catch (error) {
     console.log("getOrders", error);
-    return { orders: null, error, isSuccess: false };
+    return { error };
   }
 }
 
 export async function getOrder(id: number) {
   try {
-    const order = await get(`/orders/${id}`);
+    const order: IOrder = await get(`/orders/${id}`);
     return {
       order,
       error: undefined,
       isSuccess: true,
     };
   } catch (error) {
-    return { order: null, error, isSuccess: false };
+    return { error, isSuccess: false };
   }
 }

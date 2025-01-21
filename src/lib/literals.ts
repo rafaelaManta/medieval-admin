@@ -1,4 +1,4 @@
-import { STATUSES } from "@/app/(admin)/(home)/lib/utils";
+import { STATUSES } from "@/app/(admin)/(home)/lib/model";
 
 export const literals = {
   genericError: "Κάτι πήγε στραβά! Δοκιμάστε ξανά!",
@@ -21,4 +21,5 @@ export const literals = {
   codeText: "Κωδικός",
   completedText: "Ολοκληρωμένη",
   costText: "Κόστος",
+  totalText: "Σύνολο",
 };

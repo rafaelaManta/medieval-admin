@@ -12,8 +12,8 @@ export const OrderProducts = ({
 }: {
   orderProducts: OrderProduct[];
   status: string;
-  onClick?: (product: OrderProduct) => void;
-  error: ApiError;
+  onClick?: (id: number) => void;
+  error: ApiError | undefined;
 }) => {
   return (
     <div>

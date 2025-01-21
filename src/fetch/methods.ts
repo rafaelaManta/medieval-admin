@@ -97,38 +97,3 @@ export async function del<TResponse>(
 ): Promise<TResponse> {
   return fetchClient<TResponse>(endpoint, "DELETE", undefined, options);
 }
-
-// interface Product {
-//     id: string;
-//     name: string;
-//     price: number;
-// }
-//
-// interface CreateProductDTO {
-//     name: string;
-//     price: number;
-// }
-//
-// interface UpdateProductDTO extends Partial<CreateProductDTO> {}
-//
-// export const productService = {
-//     getAll: () => get<Product[]>('/products'),
-//     getById: (id: string) => get<Product>(`/products/${id}`),
-//     create: (data: CreateProductDTO) => post<Product, CreateProductDTO>('/products', data),
-//     update: (id: string, data: UpdateProductDTO) =>
-//         put<Product, UpdateProductDTO>(`/products/${id}`, data),
-//     delete: (id: string) => del<void>(`/products/${id}`)
-// };
-//
-//
-// async function createProduct(name: string, price: number) {
-//     const productData: CreateProductDTO = {
-//         name,
-//         price
-//     };
-//     return await productService.create(productData);
-// }
-//
-// async function updateProduct(id: string, updates: UpdateProductDTO) {
-//     return await productService.update(id, updates);
-// }

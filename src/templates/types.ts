@@ -1,11 +1,10 @@
-import { ApiError } from "@/lib/types";
+import type { ReactNode } from "react";
+import type { ApiError } from "@/lib/types";
 
 export interface TemplateProps {
-  children: React.ReactNode;
+  children: ReactNode;
   createButtonProps?: object;
   error?: ApiError | undefined;
   isSuccess?: boolean;
   className?: string;
 }
-
-export type toastType = "error" | "success" | "info" | undefined;

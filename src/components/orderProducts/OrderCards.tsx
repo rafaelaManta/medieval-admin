@@ -2,15 +2,15 @@ import { Button } from "@/components";
 import { ConciergeBell, HandCoins } from "lucide-react";
 import { OrderComments } from "@/components/orderProducts/OrderComments";
 import { OrderProduct } from "@/app/(admin)/(home)/lib/types";
-import { STATUSES } from "@/app/(admin)/(home)/lib/utils";
+import { STATUSES } from "@/app/(admin)/(home)/lib/model";
 import { bgClass } from "@/components/orderProducts/utils";
 import { literals } from "@/lib/literals";
 
 export const OrderCards = ({
   orderProducts,
-  onClickOrderProduct = () => {},
+  onClickOrderProduct,
 }: {
-  onClickOrderProduct?: (orderProduct: OrderProduct) => void;
+  onClickOrderProduct?: (id: number) => void;
   orderProducts: OrderProduct[];
 }) => {
   return orderProducts?.map((orderProduct, index) => (
@@ -21,19 +21,11 @@ export const OrderCards = ({
       <div className={"flex justify-between gap-5"}>
         <div>
           <p className="text-lg font-semibold">{`${orderProduct.product.name}`}</p>
-          {orderProduct.order?.table?.title && (
-            <p>{`Τραπέζι: ${orderProduct.order.table.title}`}</p>
-          )}
           <OrderComments product={orderProduct} />
           {orderProduct?.product?.price && (
             <p>{`${literals.costText}: ${orderProduct?.product.price}€`}</p>
           )}
         </div>
-        {orderProduct.order?.waiter?.name && (
-          <div className={"bg-gray-100 rounded p-2 self-start"}>
-            <p>{orderProduct.order.waiter.name}</p>
-          </div>
-        )}
       </div>
 
       <div
@@ -44,22 +36,23 @@ export const OrderCards = ({
             <p>Takeaway</p>
           </div>
         )}
-        {orderProduct.status === STATUSES.toBeMade && (
+        {orderProduct.status === STATUSES.toBeMade && onClickOrderProduct && (
           <div className={"justify-end"}>
             <Button
               size="icon"
+              onClick={() => onClickOrderProduct(orderProduct.id)}
               className={`opacity-100 ${bgClass[orderProduct.status]} hover:${bgClass[orderProduct.status]}`}
             >
               <ConciergeBell />
             </Button>
           </div>
         )}
-        {orderProduct.status === STATUSES.toBePaid && (
+        {orderProduct.status === STATUSES.toBePaid && onClickOrderProduct && (
           <div className={" justify-end"}>
             <Button
               size={"icon"}
               className={`opacity-100 ${bgClass[orderProduct.status]} hover:${bgClass[orderProduct.status]}`}
-              onClick={() => onClickOrderProduct(orderProduct)}
+              onClick={() => onClickOrderProduct(orderProduct.id)}
             >
               <HandCoins />
             </Button>

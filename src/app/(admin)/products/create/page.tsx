@@ -17,7 +17,6 @@ export default function CreateProduct() {
         schema={productsSchema}
         formFields={productFields}
         buttonProps={{ text: literals.createText, isLoading: isPending }}
-        // @ts-ignore
         onSubmitAction={(data: ProductsFormData) => onSubmitButtonPress(data)}
       />
     </Main>

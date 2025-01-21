@@ -1,7 +1,9 @@
 import { getOrders } from "@/app/(admin)/orders/lib/action";
-import PageScreenContent from "@/app/(admin)/orders/PageScreenContent";
+import OrdersScreenContent from "@/app/(admin)/orders/OrdersScreenContent";
+import { ApiError } from "@/lib/types";
+import { OrdersType } from "@/app/(admin)/orders/lib/types";
 
-export default async function Products() {
+export default async function Orders() {
   const { orders, error } = await getOrders();
-  return <PageScreenContent data={orders} error={error} />;
+  return <OrdersScreenContent data={orders} error={error} />;
 }

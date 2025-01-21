@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { del, get, post, put } from "@/fetch/methods";
-import { ProductsFormData } from "./types";
+import { CreateProductResponse, ProductsFormData, ProductsType } from "./types";
 import { matchApiDataWithFields } from "@/lib/formatters";
 // import { productFields } from "../lib/config";
 
@@ -63,12 +63,14 @@ export async function getProduct(id: number) {
   }
 }
 
-export async function createProduct(data: ProductsFormData) {
+export async function createProduct(
+  data: ProductsFormData,
+): Promise<CreateProductResponse> {
   try {
-    const newProduct = await post("/admin/products", data);
+    const newProduct: ProductsType = await post("/admin/products", data);
     return { newProduct, error: undefined, isSuccess: true };
   } catch (error) {
-    return { newProduct: null, error, isSuccess: false };
+    return { error, isSuccess: false };
   } finally {
     revalidatePath("/products");
   }

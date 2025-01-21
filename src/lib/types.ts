@@ -1,6 +1,8 @@
 export interface ApiError {
-  status: number;
+  // statusCode: number;
+  name: string;
   message: string;
+  status: number;
 }
 
 export interface PageScreenContentProps<T> {

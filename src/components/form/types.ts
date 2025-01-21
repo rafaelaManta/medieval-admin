@@ -12,9 +12,7 @@ export interface FormUIProps {
     type?: string;
     value?: unknown;
   }[];
-  formTitle: string | undefined;
   onSubmitAction: (data?: unknown) => void;
-
   buttonProps?: {
     text: string;
     isLoading?: boolean;

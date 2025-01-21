@@ -1,15 +1,15 @@
 import { useLogout } from "@/hooks/useLogout";
 import { ApiError } from "@/lib/types";
-import { NotFound } from "@/components/notFound/NotFound";
-import { Toast, Error } from "@/components";
+import { Toast, Error, NotFound } from "@/components";
+import type { ReactNode } from "react";
 
 export const ApiTemplate = ({
-  error = { status: 0, message: "" },
+  error,
   children,
   isSuccess = false,
 }: {
   error?: ApiError;
-  children: React.ReactNode;
+  children: ReactNode;
   isSuccess?: boolean;
 }) => {
   const { signOut } = useLogout();

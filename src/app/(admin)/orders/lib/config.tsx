@@ -1,5 +1,6 @@
 import type { ColumnDef } from "@tanstack/react-table";
 import { Checkbox } from "@/components/ui/checkbox";
+import { literals } from "@/lib/literals";
 
 export const orderColumns: ColumnDef<
   {
@@ -9,7 +10,7 @@ export const orderColumns: ColumnDef<
     completed: boolean;
     total: number;
   },
-  never
+  any
 >[] = [
   {
     accessorKey: "id",
@@ -17,17 +18,17 @@ export const orderColumns: ColumnDef<
   },
   {
     accessorKey: "table",
-    header: "Τραπέζι",
-    cell: (item) => item.getValue()?.title,
+    header: literals.tableText,
+    accessorFn: (row) => row.table.title,
   },
   {
     accessorKey: "waiter",
-    header: "Σερβιτόρος",
-    cell: (item) => item.getValue()?.name,
+    header: literals.waitressText,
+    accessorFn: (row) => row.waiter.name,
   },
   {
     accessorKey: "completed",
-    header: "Ολοκληρωμένη",
+    header: literals.completedText,
     meta: { className: "text-center", headerClassName: "text-center" },
     cell: (item) => {
       return <Checkbox checked={item.getValue()} disabled />;
@@ -35,7 +36,7 @@ export const orderColumns: ColumnDef<
   },
   {
     accessorKey: "total",
-    header: "Σύνολο",
-    cell: (item) => `${item.getValue()}€`,
+    header: literals.totalText,
+    accessorFn: (row) => `${row.total}€`,
   },
 ];

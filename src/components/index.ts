@@ -8,6 +8,7 @@ import { TableUI as Table } from "@/components/table/Table";
 import { Toast } from "@/components/toast/Toast";
 import { Error } from "@/components/error/Error";
 import { OrderProducts } from "@/components/orderProducts/OrderProducts";
+import { NotFound } from "@/components/notFound/NotFound";
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   Toast,
   Error,
   OrderProducts,
+  NotFound,
 };

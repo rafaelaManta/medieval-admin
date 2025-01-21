@@ -1,28 +1,26 @@
 "use client";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, CircleUser, Plus } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { useSidebar } from "@/components/ui/sidebar";
+import Link from "next/link";
 import { Burger, Button } from "@/components";
+import { ChevronLeft, CircleUser, Plus } from "lucide-react";
 import { literals } from "@/lib/literals";
 
 export const Header = ({
   createButtonProps,
-  user,
 }: {
   createButtonProps: {
     path?: string;
     text?: string;
   };
-  user?: {
-    id: number;
-    name: string;
-    email: string;
-  };
 }) => {
-  const { path, text } = createButtonProps;
-  const { isMobile } = useSidebar();
   const router = useRouter();
+  const { isMobile } = useSidebar();
+  const { data: session, status } = useSession();
+
+  const { path, text } = createButtonProps;
+
   return (
     <header
       className={
@@ -57,10 +55,10 @@ export const Header = ({
           </Button>
         )}
       </div>
-      {user && !isMobile && (
+      {session?.user && !isMobile && (
         <div className={"flex gap-1 items-end"}>
           <CircleUser size={24} strokeWidth={1.2} className={"text-primary"} />
-          <h3>{literals.userText.replace("%", user.name)}</h3>
+          <h3>{literals.userText.replace("%", session?.user.name)}</h3>
         </div>
       )}
     </header>
