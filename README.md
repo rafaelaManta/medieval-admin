@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Medieval CocTales Dashboard
+
+Medieval CocTales Dashboard is a Next.js-based administrative interface for managing orders and operations for the Medieval CocTales bar.
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- Next.js 15 with React 19
+- TypeScript support
+- Authentication with NextAuth.js
+- Tailwind CSS for styling
+- Form handling with react-hook-form and zod validation
+- UI components from Radix UI
+- Table management with TanStack Table
+- Linting with ESLint and Prettier
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (version 14 or later)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/medieval-admin.git
+   cd medieval-admin
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
+
+## Usage
+
+To start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the server with Turbopack enabled. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other available scripts:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run build`: Build the application for production
+- `npm start`: Start the production server
+- `npm run lint`: Run ESLint to check for code quality issues
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `public/`: Static assets
+- `src/`: Main application code
+    - `app/`: Next.js app directory
+    - `components/`: Reusable React components
+    - `fetch/`: Fetch-related methods and types
+    - `hooks/`: Custom React hooks
+    - `lib/`: Shared utilities, actions, formatters, literals, routes, and types
+    - `templates/`: Template components
+- `auth.ts`: Authentication configuration
+- `middleware.ts`: Custom middleware functions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://github.com/colinhacks/zod)
+- [Radix UI](https://www.radix-ui.com/)
+- [TanStack Table](https://tanstack.com/table/v8)
+- [Lucide React](https://lucide.dev/)
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is licensed under the [MIT License](LICENSE).
