@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { del, get, post, put } from "@/fetch/methods";
 import { CreateProductResponse, ProductsFormData, ProductsType } from "./types";
 import { matchApiDataWithFields } from "@/lib/formatters";
+import {ApiError} from "@/lib/types";
 // import { productFields } from "../lib/config";
 
 const productFields = [
@@ -41,25 +42,23 @@ const productFields = [
 
 export async function getProducts() {
   try {
-    const products = await get("/admin/products");
+    const products:ProductsType[] = await get("/admin/products");
     return { products, error: undefined, isSuccess: true };
   } catch (error) {
-    return { products: null, error, isSuccess: false };
+    return { products: [], error: error as ApiError, isSuccess: false };
   }
 }
 
 export async function getProduct(id: number) {
   try {
     const product = await get(`/admin/products/${id}`);
-    console.log("product", product);
     return {
-      // @ts-ignore
-      product: matchApiDataWithFields(productFields, product),
+      product: matchApiDataWithFields(productFields, product as ProductsType),
       error: undefined,
       isSuccess: true,
     };
   } catch (error) {
-    return { product: null, error, isSuccess: false };
+    return { product: [], error: error as ApiError, isSuccess: false };
   }
 }
 
@@ -70,7 +69,7 @@ export async function createProduct(
     const newProduct: ProductsType = await post("/admin/products", data);
     return { newProduct, error: undefined, isSuccess: true };
   } catch (error) {
-    return { error, isSuccess: false };
+    return { newProduct:null, error: error as ApiError, isSuccess: false };
   } finally {
     revalidatePath("/products");
   }
@@ -78,14 +77,14 @@ export async function createProduct(
 
 export const updateProduct = async (data: ProductsFormData, id: number) => {
   try {
-    const updatedProduct = await put(`/admin/products/${id}`, data);
+    const updatedProduct: ProductsType[] = await put(`/admin/products/${id}`, data);
     return {
       updatedProduct,
       error: undefined,
       isSuccess: true,
     };
   } catch (error) {
-    return { updatedProduct: null, error, isSuccess: false };
+    return { updatedProduct: [], error: error as ApiError, isSuccess: false };
   } finally {
     revalidatePath(`/products`);
   }

@@ -5,13 +5,14 @@ import { revalidatePath } from "next/cache";
 import type { WaiterFormData } from "@/app/(admin)/waiters/lib/types";
 import { matchApiDataWithFields } from "@/lib/formatters";
 import { waitersFields } from "@/app/(admin)/waiters/lib/config";
+import {ApiError} from "@/lib/types";
 
 export const getWaiters = async () => {
   try {
-    const waiters = await get("/admin/waiters");
+    const waiters: WaiterFormData[] = await get("/admin/waiters");
     return { waiters, error: undefined, isSuccess: true };
   } catch (error) {
-    return { waiters: null, error, isSuccess: false };
+    return { waiters: [], error: error as ApiError, isSuccess: false };
   }
 };
 
@@ -56,11 +57,11 @@ export const getWaiter = async (id: number) => {
   try {
     const waiter = await get(`/admin/waiters/${id}`);
     return {
-      waiter: matchApiDataWithFields(waitersFields, waiter),
+      waiter: matchApiDataWithFields(waitersFields, waiter as WaiterFormData),
       error: undefined,
       isSuccess: true,
     };
   } catch (error) {
-    return { waiter: null, error, isSuccess: false };
+    return { waiter: [], error, isSuccess: false };
   }
 };

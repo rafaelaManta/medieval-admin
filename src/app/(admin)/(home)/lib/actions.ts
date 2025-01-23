@@ -12,7 +12,7 @@ export async function getTodayOrdersByStatus(status: string) {
     return { todayOrders, error: undefined, isSuccess: true };
   } catch (error) {
     console.log("getTodayOrdersByStatus", error);
-    return { todayOrders: [], error, isSuccess: false };
+    return { todayOrders: [], error: error as ApiError, isSuccess: false };
   }
 }
 

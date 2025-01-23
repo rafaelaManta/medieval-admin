@@ -1,6 +1,7 @@
 import { getTodayOrdersByStatus } from "@/app/(admin)/(home)/lib/actions";
 import { STATUSES } from "@/app/(admin)/(home)/lib/model";
 import HomeContent from "@/app/(admin)/(home)/HomeContent";
+import { redirect } from "next/navigation";
 
 export default async function Home() {
   const { todayOrders: toBeMadeOrders, error: toBeMadeOrdersError } =
@@ -11,6 +12,14 @@ export default async function Home() {
 
   const { todayOrders: paidOrders, error: paidOrdersError } =
     await getTodayOrdersByStatus(STATUSES.paid);
+
+  if (
+    paidOrdersError?.status === 401 ||
+    toBeMadeOrdersError?.status === 401 ||
+    toBePaidOrdersError?.status === 401
+  ) {
+    redirect("/login");
+  }
 
   return (
     <HomeContent

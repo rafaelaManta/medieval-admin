@@ -24,6 +24,8 @@ export default function HomeContent({
     setUpdateError(error);
   }, []);
 
+
+
   return (
     <Main className={"overflow-y-hidden"} error={updateError}>
       <div className="grid md:grid-cols-3 auto-rows-fr gap-4">

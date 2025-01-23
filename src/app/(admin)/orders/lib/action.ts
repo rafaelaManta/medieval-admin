@@ -1,6 +1,7 @@
 "use server";
-import { get, put } from "@/fetch/methods";
+import { get } from "@/fetch/methods";
 import type { IOrder, OrdersType } from "@/app/(admin)/orders/lib/types";
+import {ApiError} from "@/lib/types";
 
 export async function getOrders() {
   try {
@@ -8,7 +9,7 @@ export async function getOrders() {
     return { orders, isSuccess: true };
   } catch (error) {
     console.log("getOrders", error);
-    return { error };
+    return { orders:[], error: error as ApiError, isSuccess: false };
   }
 }
 
@@ -21,6 +22,6 @@ export async function getOrder(id: number) {
       isSuccess: true,
     };
   } catch (error) {
-    return { error, isSuccess: false };
+    return { order:{},error: error as ApiError, isSuccess: false };
   }
 }

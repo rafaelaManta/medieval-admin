@@ -11,6 +11,7 @@ export default async function Order({
   const { order, error } = await getOrder(id);
   return (
     <Main error={error}>
+      {/* @ts-ignore */}
       <OrderContent order={order} />
     </Main>
   );

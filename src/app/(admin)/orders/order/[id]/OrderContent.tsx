@@ -1,5 +1,3 @@
-import { getOrder } from "@/app/(admin)/orders/lib/action";
-import { Main } from "@/templates";
 import { literals } from "@/lib/literals";
 import { OrderCards } from "@/components/orderProducts/OrderCards";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,7 +10,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import type { IOrder } from "@/app/(admin)/orders/lib/types";
-import type { ApiError } from "@/lib/types";
 
 export default function OrderContent({ order }: { order: IOrder }) {
   return (
@@ -48,6 +45,7 @@ export default function OrderContent({ order }: { order: IOrder }) {
                   <Separator className={"mb-2"} />
                   <div className={"flex gap-3 mb-2 items-center"}>
                     <h2>{literals.completedText}</h2>
+                    {/* @ts-ignore */}
                     <Checkbox disabled value={order?.completed} />
                   </div>
                 </AccordionContent>
@@ -56,14 +54,12 @@ export default function OrderContent({ order }: { order: IOrder }) {
           </CardContent>
         </Card>
         <div className={"mt-4"}>
+          {/* @ts-ignore */}
           <OrderCards orderProducts={order?.order_products} />
         </div>
       </div>
-      <div className="col-span-1 relative">
-        <div className={"fixed right-6"}>
-          <p>dfsfsdf</p>
-        </div>
-      </div>
+      {/*<div className="col-span-1 relative">*/}
+      {/*</div>*/}
     </div>
   );
 }

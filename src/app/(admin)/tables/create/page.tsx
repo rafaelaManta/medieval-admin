@@ -9,7 +9,8 @@ import { createTable } from "../lib/actions";
 import type { TablesFormData } from "../lib/types";
 
 export default function CreateTable() {
-  const { error, isPending, onSubmitButtonPress, isSuccess } =
+    const { error, isPending, onSubmitButtonPress, isSuccess } =
+  // @ts-ignore
     useCreate(createTable);
   return (
     <Main error={error} isSuccess={isSuccess}>
@@ -17,8 +18,7 @@ export default function CreateTable() {
         schema={tablesSchema}
         formFields={tableFields}
         buttonProps={{ text: literals.createText, isLoading: isPending }}
-        // @ts-ignore
-        onSubmitAction={(data: TablesFormData) => onSubmitButtonPress(data)}
+        onSubmitAction={(data) => onSubmitButtonPress(data as TablesFormData)}
       />
     </Main>
   );

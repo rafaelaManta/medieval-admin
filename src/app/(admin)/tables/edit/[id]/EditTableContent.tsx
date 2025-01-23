@@ -6,18 +6,23 @@ import { Main } from "@/templates";
 import { tablesSchema } from "@/app/(admin)/tables/lib/shema";
 import { literals } from "@/lib/literals";
 import type { TablesFormData } from "@/app/(admin)/tables/lib/types";
-import type { PageScreenContentProps } from "@/lib/types";
+import type {ApiError} from "@/lib/types";
 
 export default function EditTableContent({
   id,
   data,
   error,
-}: PageScreenContentProps) {
+}: {
+  id: number;
+  data:  {value: string; id: string; }[];
+  error: ApiError | undefined;
+}) {
   const {
     onSubmitButtonPress,
     error: updateError,
     isPending,
     isSuccess: updateSuccess,
+  // @ts-ignore
   } = useUpdate(updateTable);
   return (
     <Main
@@ -32,8 +37,7 @@ export default function EditTableContent({
         formFields={data}
         schema={tablesSchema}
         buttonProps={{ text: literals.updateText, isLoading: isPending }}
-        // @ts-ignore
-        onSubmitAction={(data: TablesFormData) => onSubmitButtonPress(data, id)}
+        onSubmitAction={(data) => onSubmitButtonPress(data as TablesFormData, id)}
       />
     </Main>
   );

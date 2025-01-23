@@ -5,6 +5,7 @@ import { del, get, post, put } from "@/fetch/methods";
 import type { TablesFormData } from "./types";
 import { matchApiDataWithFields } from "@/lib/formatters";
 import { tableFields } from "@/app/(admin)/tables/lib/config";
+import {ApiError} from "@/lib/types";
 
 export async function getTables() {
   try {
@@ -19,19 +20,18 @@ export async function getTable(id: number) {
   try {
     const table = await get(`/admin/tables/${id}`);
     return {
-      // @ts-ignore
-      table: matchApiDataWithFields(tableFields, table),
+      table: matchApiDataWithFields(tableFields, table as TablesFormData),
       error: undefined,
       isSuccess: true,
     };
   } catch (error) {
-    return { table: null, error, isSuccess: false };
+    return { table: [], error: error as ApiError, isSuccess: false };
   }
 }
 
 export async function createTable(data: TablesFormData) {
   try {
-    const newTable = await post("/admin/tables", data);
+    const newTable: TablesFormData = await post("/admin/tables", data);
     return { newTable, error: undefined, isSuccess: true };
   } catch (error) {
     return { newTable: null, error, isSuccess: false };

@@ -2,7 +2,7 @@ import { Check, Info, XCircle } from "lucide-react";
 import { literals } from "@/lib/literals";
 
 interface ToastProps {
-  errorMessage: string;
+  errorMessage: string | undefined;
   type?: "success" | "error" | "info";
 }
 

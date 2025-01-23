@@ -14,7 +14,7 @@ export type ProductsType = {
 };
 
 export type CreateProductResponse = {
-  newProduct?: ProductsType;
-  error?: ApiError;
-  isSuccess?: boolean;
+  newProduct: ProductsType | null;
+  error: ApiError | undefined;
+  isSuccess: boolean;
 };

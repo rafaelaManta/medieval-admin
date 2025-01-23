@@ -2,7 +2,7 @@
 import { Table } from "@/components";
 import { Main } from "@/templates";
 import { orderColumns } from "@/app/(admin)/orders/lib/config";
-import type { ApiError, PageScreenContentProps } from "@/lib/types";
+import type { ApiError } from "@/lib/types";
 import { OrdersType } from "@/app/(admin)/orders/lib/types";
 
 export default function OrdersContent({
@@ -10,7 +10,7 @@ export default function OrdersContent({
   error,
 }: {
   data: OrdersType;
-  error: ApiError;
+  error: ApiError | undefined;
 }) {
   return (
     <Main error={error}>

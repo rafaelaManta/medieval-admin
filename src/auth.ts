@@ -31,9 +31,11 @@ export const { handlers, signIn, auth } = NextAuth({
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
       },
+      // @ts-ignore
       authorize: async (credentials) => {
         try {
           const { email, password } = credentials;
+          // @ts-ignore
           const response = await post<ILoginResponse>(
             "/admin/login",
             { email, password },
