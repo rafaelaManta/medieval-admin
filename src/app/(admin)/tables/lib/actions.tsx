@@ -9,10 +9,10 @@ import {ApiError} from "@/lib/types";
 
 export async function getTables() {
   try {
-    const tables = await get("/admin/tables");
+    const tables: TablesFormData[] = await get("/admin/tables");
     return { tables, error: undefined, isSuccess: true };
   } catch (error) {
-    return { tables: null, error, isSuccess: false };
+    return { tables: [], error:error as ApiError, isSuccess: false };
   }
 }
 

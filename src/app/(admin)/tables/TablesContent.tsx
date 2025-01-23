@@ -3,18 +3,22 @@ import { deleteTable } from "@/app/(admin)/tables/lib/actions";
 import { Table } from "@/components";
 import { Main } from "@/templates";
 import { literals } from "@/lib/literals";
-import type { PageScreenContentProps } from "@/lib/types";
 import { tablesColumns } from "@/app/(admin)/tables/lib/config";
 import { useDelete } from "@/hooks/useDelete";
+import type {ApiError} from "@/lib/types";
 
 export default function TablesContent({
   data,
   error,
-}: PageScreenContentProps) {
+}: {
+  data: {title: string;  order: number;}[]
+  error: ApiError | undefined,
+}) {
   const {
     onSubmitButtonPress,
     error: deleteError,
     isSuccess: deleteSuccess,
+  // @ts-ignore
   } = useDelete(deleteTable);
 
   return (
