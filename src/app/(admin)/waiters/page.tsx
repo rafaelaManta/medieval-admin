@@ -1,8 +1,8 @@
 import { getWaiters } from "./lib/actions";
-import PageScreenContent from "./PageScreenContent";
+import WaitersContent from "./WaitersContent";
 
 export default async function Waiters() {
   const { waiters, error } = await getWaiters();
 
-  return <PageScreenContent data={waiters} error={error} />;
+  return <WaitersContent data={waiters} error={error} />;
 }

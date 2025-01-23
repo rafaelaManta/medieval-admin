@@ -1,5 +1,5 @@
 import { getWaiter } from "@/app/(admin)/waiters/lib/actions";
-import PageScreenContent from "./PageScreenContent";
+import EditWaiterContent from "./EditWaiterContent";
 
 export default async function EditWaiter({
   params,
@@ -9,5 +9,5 @@ export default async function EditWaiter({
   const id = (await params).id;
   const { waiter, error } = await getWaiter(id);
 
-  return <PageScreenContent data={waiter} error={error} id={id} />;
+  return <EditWaiterContent data={waiter} error={error} id={id} />;
 }

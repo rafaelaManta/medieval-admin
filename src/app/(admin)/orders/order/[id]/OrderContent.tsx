@@ -14,7 +14,7 @@ import {
 import type { IOrder } from "@/app/(admin)/orders/lib/types";
 import type { ApiError } from "@/lib/types";
 
-export default function OrderScreenContent({ order }: { order: IOrder }) {
+export default function OrderContent({ order }: { order: IOrder }) {
   return (
     <div className=" grid grid-cols-3">
       <div className="col-span-2">

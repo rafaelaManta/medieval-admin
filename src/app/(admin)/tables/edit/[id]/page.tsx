@@ -1,5 +1,5 @@
 import { getTable } from "@/app/(admin)/tables/lib/actions";
-import EditScreenContent from "./EditScreenContent";
+import EditTableContent from "./EditTableContent";
 
 export default async function EditTable({
   params,
@@ -9,5 +9,5 @@ export default async function EditTable({
   const id = (await params).id;
   const { table, error } = await getTable(id);
 
-  return <EditScreenContent data={table} error={error} id={id} />;
+  return <EditTableContent data={table} error={error} id={id} />;
 }

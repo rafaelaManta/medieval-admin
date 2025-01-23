@@ -1,7 +1,7 @@
 import { getProducts } from "./lib/actions";
-import PageScreenContent from "./PageScreenContent";
+import ProductsContent from "./ProductsContent";
 
 export default async function Products() {
   const { products, error } = await getProducts();
-  return <PageScreenContent data={products} error={error} />;
+  return <ProductsContent data={products} error={error} />;
 }

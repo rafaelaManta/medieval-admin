@@ -2,12 +2,12 @@
 import { Table } from "@/components";
 import { Main } from "@/templates";
 import { literals } from "@/lib/literals";
-import type { PageScreenContentProps } from "@/lib/types";
+import type { ApiError, PageScreenContentProps } from "@/lib/types";
 import { useDelete } from "@/hooks/useDelete";
-import { deleteProduct } from "@/app/(admin)/products/lib/actions";
-import { productColumns } from "@/app/(admin)/products/lib/config";
+import { waitersColumns } from "@/app/(admin)/waiters/lib/config";
+import { deleteWaiter } from "@/app/(admin)/waiters/lib/actions";
 
-export default function PageScreenContent({
+export default function WaitersContent({
   data,
   error,
 }: PageScreenContentProps) {
@@ -15,22 +15,22 @@ export default function PageScreenContent({
     onSubmitButtonPress,
     error: deleteError,
     isSuccess: deleteSuccess,
-  } = useDelete(deleteProduct);
+  } = useDelete(deleteWaiter);
 
   return (
     <Main
       error={error || deleteError}
       createButtonProps={{
-        path: "/products/create",
-        text: literals.createProductsButtonText,
+        path: "/waiters/create",
+        text: literals.createWaiterButtonText,
       }}
       isSuccess={deleteSuccess}
     >
       <Table
-        editLink={"/products/edit"}
-        columns={productColumns}
         data={data}
-        deleteButtonPressAction={(id: number) => onSubmitButtonPress(id)}
+        columns={waitersColumns}
+        editLink={"/waiters/edit"}
+        deleteButtonPressAction={(id) => onSubmitButtonPress(id)}
       />
     </Main>
   );

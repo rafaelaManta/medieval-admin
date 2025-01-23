@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components";
-import { postLogin } from "@/app/login/actions";
-import { loginSchema } from "@/app/login/schema";
-import type { LoginType } from "@/app/login/types";
+import { postLogin } from "@/app/login/lib/actions";
+import { loginSchema } from "@/app/login/lib/schema";
+import type { LoginType } from "@/app/login/lib/types";
 import { useRouter } from "next/navigation";
 
 export default function LoginForm() {

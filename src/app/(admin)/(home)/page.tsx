@@ -1,6 +1,6 @@
 import { getTodayOrdersByStatus } from "@/app/(admin)/(home)/lib/actions";
 import { STATUSES } from "@/app/(admin)/(home)/lib/model";
-import HomeScreenContent from "@/app/(admin)/(home)/HomeScreenContent";
+import HomeContent from "@/app/(admin)/(home)/HomeContent";
 
 export default async function Home() {
   const { todayOrders: toBeMadeOrders, error: toBeMadeOrdersError } =
@@ -13,7 +13,7 @@ export default async function Home() {
     await getTodayOrdersByStatus(STATUSES.paid);
 
   return (
-    <HomeScreenContent
+    <HomeContent
       paidOrders={paidOrders}
       toBeMadeOrders={toBeMadeOrders}
       toBePaidOrders={toBePaidOrders}

@@ -2,8 +2,7 @@
 
 import { signIn } from "@/auth";
 import { AuthError } from "next-auth";
-import { DEFAULT_LOGIN_REDIRECT } from "@/lib/routes";
-import type { LoginType } from "@/app/login/types";
+import type { LoginType } from "@/app/login/lib/types";
 import { literals } from "@/lib/literals";
 
 export async function postLogin(credentials: LoginType) {

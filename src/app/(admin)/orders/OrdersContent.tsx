@@ -5,7 +5,7 @@ import { orderColumns } from "@/app/(admin)/orders/lib/config";
 import type { ApiError, PageScreenContentProps } from "@/lib/types";
 import { OrdersType } from "@/app/(admin)/orders/lib/types";
 
-export default function OrdersScreenContent({
+export default function OrdersContent({
   data,
   error,
 }: {

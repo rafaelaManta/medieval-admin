@@ -2,7 +2,7 @@ import "next-auth/jwt";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import { post } from "@/fetch/methods";
-import type { ILoginResponse } from "@/app/login/types";
+import type { ILoginResponse } from "@/app/login/lib/types";
 
 declare module "next-auth" {
   interface Session {

@@ -7,7 +7,7 @@ import type { PageScreenContentProps } from "@/lib/types";
 import { tablesColumns } from "@/app/(admin)/tables/lib/config";
 import { useDelete } from "@/hooks/useDelete";
 
-export default function PageScreenContent({
+export default function TablesContent({
   data,
   error,
 }: PageScreenContentProps) {

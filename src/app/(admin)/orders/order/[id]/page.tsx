@@ -1,5 +1,5 @@
 import { getOrder } from "@/app/(admin)/orders/lib/action";
-import OrderScreenContent from "@/app/(admin)/orders/order/[id]/OrderScreenContent";
+import OrderContent from "@/app/(admin)/orders/order/[id]/OrderContent";
 import { Main } from "@/templates";
 
 export default async function Order({
@@ -11,7 +11,7 @@ export default async function Order({
   const { order, error } = await getOrder(id);
   return (
     <Main error={error}>
-      <OrderScreenContent order={order} />
+      <OrderContent order={order} />
     </Main>
   );
 }

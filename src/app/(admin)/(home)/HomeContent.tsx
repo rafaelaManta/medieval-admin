@@ -7,7 +7,7 @@ import { updateTodayOrderStatus } from "@/app/(admin)/(home)/lib/actions";
 import { ApiError } from "@/lib/types";
 import { IHomePageProps } from "@/app/(admin)/(home)/lib/types";
 
-export default function HomeScreenContent({
+export default function HomeContent({
   toBeMadeOrders,
   toBeMadeOrdersError,
   toBePaidOrders,

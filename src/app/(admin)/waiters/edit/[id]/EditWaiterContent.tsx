@@ -8,7 +8,7 @@ import { PageScreenContentProps } from "@/lib/types";
 import { useUpdate } from "@/hooks/useUpdate";
 import { updateWaiter } from "../../lib/actions";
 
-export default function PageScreenContent({
+export default function EditWaiterContent({
   id,
   data,
   error,

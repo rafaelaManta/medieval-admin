@@ -1,5 +1,5 @@
 import { getProduct } from "@/app/(admin)/products/lib/actions";
-import EditScreenContent from "./EditScreenContent";
+import EditProductContent from "./EditProductContent";
 
 export default async function EditProduct({
   params,
@@ -8,5 +8,5 @@ export default async function EditProduct({
 }) {
   const id = (await params).id;
   const { product, error } = await getProduct(id);
-  return <EditScreenContent id={id} data={product} error={error} />;
+  return <EditProductContent id={id} data={product} error={error} />;
 }

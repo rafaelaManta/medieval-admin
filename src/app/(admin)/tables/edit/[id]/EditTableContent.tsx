@@ -1,14 +1,14 @@
 "use client";
+import { updateTable } from "@/app/(admin)/tables/lib/actions";
 import { useUpdate } from "@/hooks/useUpdate";
 import { Form } from "@/components";
 import { Main } from "@/templates";
+import { tablesSchema } from "@/app/(admin)/tables/lib/shema";
 import { literals } from "@/lib/literals";
-import { updateProduct } from "@/app/(admin)/products/lib/actions";
-import { productsSchema } from "@/app/(admin)/products/lib/schema";
-import { ProductsFormData } from "@/app/(admin)/products/lib/types";
+import type { TablesFormData } from "@/app/(admin)/tables/lib/types";
 import type { PageScreenContentProps } from "@/lib/types";
 
-export default function EditScreenContent({
+export default function EditTableContent({
   id,
   data,
   error,
@@ -18,25 +18,22 @@ export default function EditScreenContent({
     error: updateError,
     isPending,
     isSuccess: updateSuccess,
-  } = useUpdate(updateProduct);
-
+  } = useUpdate(updateTable);
   return (
     <Main
-      isSuccess={updateSuccess}
       error={error || updateError}
       createButtonProps={{
-        path: "/products/create",
+        path: "/tables/create",
         text: literals.createTableButtonText,
       }}
+      isSuccess={updateSuccess}
     >
       <Form
         formFields={data}
-        schema={productsSchema}
+        schema={tablesSchema}
         buttonProps={{ text: literals.updateText, isLoading: isPending }}
         // @ts-ignore
-        onSubmitAction={(data: ProductsFormData) =>
-          onSubmitButtonPress(data, id)
-        }
+        onSubmitAction={(data: TablesFormData) => onSubmitButtonPress(data, id)}
       />
     </Main>
   );
