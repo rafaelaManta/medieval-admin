@@ -22,7 +22,6 @@ Medieval CocTales Dashboard is a Next.js-based administrative interface for mana
 - Form handling with react-hook-form and zod validation
 - UI components from Radix UI
 - Table management with TanStack Table
-- Linting with ESLint and Prettier
 
 ## Getting Started
 
@@ -89,10 +88,6 @@ Other available scripts:
 - [Radix UI](https://www.radix-ui.com/)
 - [TanStack Table](https://tanstack.com/table/v8)
 - [Lucide React](https://lucide.dev/)
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
