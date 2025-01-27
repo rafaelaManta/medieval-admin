@@ -6,9 +6,6 @@ import {
   SidebarGroupContent,
   SidebarHeader,
   useSidebar,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
 } from "@/components/ui/sidebar";
 import { Burger, Logo } from "@/components";
 import { SidebarMenuUI } from "./SidebarMenu";

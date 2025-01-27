@@ -1,5 +1,3 @@
-import { STATUSES } from "@/app/(admin)/(home)/lib/model";
-
 export const literals = {
   genericError: "Κάτι πήγε στραβά! Δοκιμάστε ξανά!",
   invalidCredentials:

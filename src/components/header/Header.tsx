@@ -17,7 +17,7 @@ export const Header = ({
 }) => {
   const router = useRouter();
   const { isMobile } = useSidebar();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
 
   const { path, text } = createButtonProps;
 
