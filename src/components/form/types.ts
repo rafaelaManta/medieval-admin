@@ -17,6 +17,7 @@ export interface FormUIProps {
     text: string;
     isLoading?: boolean;
   };
+  disabled?: boolean;
 }
 
 export type InputTagsProps = Omit<InputProps, "value" | "onChange"> & {
@@ -27,6 +28,7 @@ export type InputTagsProps = Omit<InputProps, "value" | "onChange"> & {
     },
   ];
   onChange: (from: ({ id: string; tag: string } | string)[]) => void;
+  disabled?: boolean;
 };
 
 export type FieldUIProps = {

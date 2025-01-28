@@ -13,13 +13,14 @@ export const ApiTemplate = ({
   isSuccess?: boolean;
 }) => {
   const { signOut } = useLogout();
-
   const shouldDisplayNotFound = error?.status === 204;
   const shouldDisplayToastError = error?.message && !shouldDisplayNotFound;
   const shouldDisplayToastSuccess = isSuccess;
 
   if (error?.status === 401 || error?.status === 403) {
-    (async () => await signOut())();
+    if (typeof window !== "undefined") {
+      (async () => await signOut())();
+    }
     return null;
   }
 

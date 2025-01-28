@@ -7,13 +7,15 @@ import type { FieldUIProps } from "@/components/form/types";
 export const FieldUI = ({
   field,
   type,
+  disabled,
 }: {
+  disabled?: boolean;
   field: FieldUIProps;
   type: string;
 }) => {
   switch (type) {
     case "textarea":
-      return <Textarea {...field} />;
+      return <Textarea {...field} className={"min-h-40"} />;
     case "checkbox":
       return (
         // @ts-ignore
@@ -26,7 +28,13 @@ export const FieldUI = ({
       );
     case "tags":
       // @ts-ignore
-      return <InputTags value={field?.value} onChange={field.onChange} />;
+      return (
+        <InputTags
+          value={field?.value}
+          onChange={field.onChange}
+          disabled={disabled}
+        />
+      );
     default:
       if (field.name === "passcode") {
         return <Input {...field} type="password" />;

@@ -21,6 +21,7 @@ export const FormUI = ({
   schema,
   onSubmitAction,
   buttonProps,
+  disabled = false,
 }: FormUIProps) => {
   const defaultValues = useMemo(
     () =>
@@ -44,7 +45,7 @@ export const FormUI = ({
     resolver: zodResolver(schema as ZodType),
     defaultValues,
   });
-
+  console.log("adsad", disabled);
   return (
     <Card className={"pt-6 lg:w-2/3"}>
       <CardContent>
@@ -53,6 +54,7 @@ export const FormUI = ({
             {formFields?.map(({ name, label, type }) => (
               <div className={"mt-5"} key={name}>
                 <FormField
+                  disabled={disabled}
                   name={name as "name"}
                   control={zForm.control}
                   render={({ field }) => {
@@ -60,7 +62,11 @@ export const FormUI = ({
                       <FormItem>
                         <FormLabel className={"text-base"}>{label}</FormLabel>
                         <FormControl>
-                          <FieldUI field={field} type={type} />
+                          <FieldUI
+                            field={field}
+                            type={type}
+                            disabled={disabled}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -69,7 +75,7 @@ export const FormUI = ({
                 />
               </div>
             ))}
-            {buttonProps && (
+            {buttonProps && !disabled && (
               <div className={"flex justify-end mt-5"}>
                 <Button type="submit" className={"text-base"} {...buttonProps}>
                   {buttonProps.text}

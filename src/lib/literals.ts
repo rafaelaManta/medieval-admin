@@ -20,4 +20,6 @@ export const literals = {
   completedText: "Ολοκληρωμένη",
   costText: "Κόστος",
   totalText: "Σύνολο",
+  waiterPinText: "Ο Κωδικός πιστοποίησης σερβιτόρου ειναι %",
+  waiterForgotPasswordText: "Επαναφορά κωδικού πρόσβασης",
 };
