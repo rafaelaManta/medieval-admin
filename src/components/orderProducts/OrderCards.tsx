@@ -6,6 +6,7 @@ import { STATUSES } from "@/app/(admin)/(home)/lib/model";
 import { bgClass } from "@/components/orderProducts/utils";
 import { literals } from "@/lib/literals";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export const OrderCards = ({
   orderProducts,
@@ -31,11 +32,11 @@ export const OrderCards = ({
         </div>
         {withLink && (
           <Link
+            className={`${buttonVariants({ variant: "ghost" })} hover:bg-primary hover:text-white border-primary border px-2`}
             href={{
               pathname: `/products/edit/${orderProduct.product.id}`,
               query: { disabled: true },
             }}
-            className={"hover:text-primary"}
           >
             <ChevronRight />
           </Link>

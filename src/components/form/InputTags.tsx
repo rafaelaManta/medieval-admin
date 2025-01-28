@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import type { InputTagsProps } from "@/components/form/types";
 
 export const InputTags = forwardRef<HTMLInputElement, InputTagsProps>(
-  ({ className, value, onChange, ...props }, ref) => {
+  ({ className, value, onChange, disabled, ...props }, ref) => {
     const [pendingDataPoint, setPendingDataPoint] = useState({ tag: "" });
 
     useEffect(() => {
@@ -34,25 +34,32 @@ export const InputTags = forwardRef<HTMLInputElement, InputTagsProps>(
         className={`flex w-full flex-wrap gap-2 min-h-10 h-9 rounded-md border border-input bg-transparent
            px-3 py-2 text-sm shadow-sm transition-colors placeholder:text-muted-foreground ring-offset-white 
            disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-neutral-950 
-           dark:ring-offset-neutral-950 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${className}`}
+           dark:ring-offset-neutral-950 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring ${disabled ? "disabled:opacity-50" : ""} ${className}`}
       >
         {value?.map((item) => (
-          <Badge key={item?.tag} variant="secondary">
+          <Badge
+            key={item?.tag}
+            variant="secondary"
+            className={disabled ? "disabled:opacity-50" : ""}
+          >
             {item?.tag}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="ml-2 h-3 w-3"
-              onClick={() => {
-                onChange(value.filter((i) => i !== item));
-              }}
-            >
-              <XIcon className="w-3" />
-            </Button>
+            {!disabled && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-2 h-3 w-3"
+                onClick={() => {
+                  onChange(value.filter((i) => i !== item));
+                }}
+              >
+                <XIcon className="w-3" />
+              </Button>
+            )}
           </Badge>
         ))}
         <input
-          className="flex-1 outline-none placeholder:text-neutral-500 dark:placeholder:text-neutral-400"
+          disabled={disabled}
+          className={`flex-1 outline-none placeholder:text-neutral-500 dark:placeholder:text-neutral-400 ${disabled ? "disabled:opacity-50" : ""}`}
           value={pendingDataPoint.tag}
           onChange={(e) => setPendingDataPoint({ tag: e.target.value })}
           onKeyDown={(e) => {

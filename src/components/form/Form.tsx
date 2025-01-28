@@ -62,7 +62,11 @@ export const FormUI = ({
                       <FormItem>
                         <FormLabel className={"text-base"}>{label}</FormLabel>
                         <FormControl>
-                          <FieldUI field={field} type={type} />
+                          <FieldUI
+                            field={field}
+                            type={type}
+                            disabled={disabled}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -71,13 +75,17 @@ export const FormUI = ({
                 />
               </div>
             ))}
-            {buttonProps && (
-              <div className={"flex justify-end mt-5"}>
-                <Button type="submit" className={"text-base"} {...buttonProps}>
-                  {buttonProps.text}
-                </Button>
-              </div>
-            )}
+            {(buttonProps && !disabled) &&(
+                <div className={"flex justify-end mt-5"}>
+                  <Button
+                    type="submit"
+                    className={"text-base"}
+                    {...buttonProps}
+                  >
+                    {buttonProps.text}
+                  </Button>
+                </div>,
+              )}
           </form>
         </Form>
       </CardContent>
