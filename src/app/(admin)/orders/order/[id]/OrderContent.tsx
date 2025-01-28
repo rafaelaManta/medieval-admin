@@ -55,7 +55,7 @@ export default function OrderContent({ order }: { order: IOrder }) {
         </Card>
         <div className={"mt-4"}>
           {/* @ts-ignore */}
-          <OrderCards orderProducts={order?.order_products} />
+          <OrderCards orderProducts={order?.order_products} withLink={true} />
         </div>
       </div>
       {/*<div className="col-span-1 relative">*/}

@@ -11,11 +11,11 @@ import { buttonVariants } from "@/components/ui/button";
 export const OrderCards = ({
   orderProducts,
   onClickOrderProduct,
-  withLink = true,
+  withLink,
 }: {
   onClickOrderProduct?: (id: number) => void;
   orderProducts: OrderProduct[];
-  withLink: boolean;
+  withLink?: boolean;
 }) => {
   return orderProducts?.map((orderProduct, index) => (
     <div

@@ -21,9 +21,7 @@ export type OrderProduct = {
 
 export interface IHomePageProps {
   toBeMadeOrders: OrderProduct[];
-  toBeMadeOrdersError: ApiError | undefined;
   toBePaidOrders: OrderProduct[];
-  toBePaidOrdersError: ApiError | undefined;
   paidOrders: OrderProduct[];
-  paidOrdersError: ApiError | undefined;
+  todayOrdersByStatusError: ApiError | { message: string } | undefined;
 }
