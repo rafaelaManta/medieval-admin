@@ -12,9 +12,11 @@ export const MainTemplate = ({
   isSuccess,
   className = "",
 }: TemplateProps) => {
+  //TODO: get the current value from the cookies
+  //https://ui.shadcn.com/docs/components/sidebar#persisted-state
   return (
     <SessionProvider>
-      <SidebarProvider>
+      <SidebarProvider defaultOpen={true}>
         <Sidebar />
         <section className={`flex flex-col w-full ${className}`}>
           <Header createButtonProps={createButtonProps} />

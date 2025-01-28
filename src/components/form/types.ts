@@ -17,6 +17,7 @@ export interface FormUIProps {
     text: string;
     isLoading?: boolean;
   };
+  disabled?: boolean;
 }
 
 export type InputTagsProps = Omit<InputProps, "value" | "onChange"> & {

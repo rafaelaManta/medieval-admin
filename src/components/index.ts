@@ -9,6 +9,7 @@ import { Toast } from "@/components/toast/Toast";
 import { Error } from "@/components/error/Error";
 import { OrderProducts } from "@/components/orderProducts/OrderProducts";
 import { NotFound } from "@/components/notFound/NotFound";
+import { Alert } from "@/components/alert/Alert";
 
 export {
   Button,
@@ -22,4 +23,5 @@ export {
   Error,
   OrderProducts,
   NotFound,
+  Alert,
 };
