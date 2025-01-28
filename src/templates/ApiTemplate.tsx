@@ -18,7 +18,9 @@ export const ApiTemplate = ({
   const shouldDisplayToastSuccess = isSuccess;
 
   if (error?.status === 401 || error?.status === 403) {
-    (async () => await signOut())();
+    if (typeof window !== "undefined") {
+      (async () => await signOut())();
+    }
     return null;
   }
 
