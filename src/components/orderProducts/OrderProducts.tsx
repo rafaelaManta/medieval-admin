@@ -17,7 +17,7 @@ export const OrderProducts = ({
   return (
     <div>
       <OrderStatus status={status} />
-      <div className={"h-screen overflow-y-scroll"}>
+      <div className={"h-[calc(100vh-120px)] overflow-y-scroll"}>
         {orderProducts?.length <= 0 ? (
           <NotFound className={"bg-white p-2"} />
         ) : (
