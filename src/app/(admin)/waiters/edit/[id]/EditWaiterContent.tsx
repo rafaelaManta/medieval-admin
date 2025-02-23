@@ -46,7 +46,6 @@ export default function EditWaiterContent({
       }}
     >
       <Form
-        disabled
         formFields={data}
         schema={waiterSchema}
         buttonProps={{

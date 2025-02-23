@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { updateTodayOrderStatus } from "@/app/(admin)/(home)/lib/actions";
 import type { ApiError } from "@/lib/types";
 import type { IHomePageProps } from "@/app/(admin)/(home)/lib/types";
+import { useEcho } from "@/hooks/useEcho";
 
 export default function HomeContent({
   toBeMadeOrders,
@@ -17,6 +18,8 @@ export default function HomeContent({
   const [toBePaidOrdersState, setToBePaidOrders] = useState(toBePaidOrders);
   const [paidOrdersState, setPaidOrders] = useState(paidOrders);
 
+  const echo = useEcho();
+
   const [updateError, setUpdateError] = useState<ApiError | undefined>(
     undefined,
   );
@@ -27,33 +30,33 @@ export default function HomeContent({
   };
 
   useEffect(() => {
-    const ws = new WebSocket("wss://medieval-websocket.onrender.com");
-    ws.onopen = () => console.log("Connected to WebSocket");
-
-    ws.onmessage = (event) => {
-      const { event: eventName, data } = JSON.parse(event.data);
-      console.log(`Received event: ${eventName}`, data);
-      if (eventName === STATUSES.toBeMade) {
+    if (echo === null) {
+      return;
+    }
+    const channel = echo.channel("orders");
+    channel.listen("OrderCreated", (data: any) => {
+      console.log("New Order:", data);
+      if (data?.status === STATUSES.toBeMade) {
         setToBeMadeOrders((toBeMadeOrdersState) => [
           ...toBeMadeOrdersState,
           data,
         ]);
       }
-      if (eventName === STATUSES.toBePaid) {
+      if (data?.status === STATUSES.toBePaid) {
         setToBePaidOrders((toBePaidOrdersState) => [
           ...toBePaidOrdersState,
           data,
         ]);
       }
-      if (eventName === STATUSES.paid) {
-        setPaidOrders((paidOrdersState) => [paidOrdersState, data]);
+      if (data?.status === STATUSES.paid) {
+        setPaidOrders((paidOrdersState) => [...paidOrdersState, data]);
       }
+    });
+
+    return () => {
+      channel.stopListening("OrderCreated");
     };
-
-    ws.onclose = () => console.log("WebSocket disconnected");
-
-    return () => ws.close();
-  }, [toBeMadeOrders]);
+  }, [echo]);
 
   return (
     <Main
